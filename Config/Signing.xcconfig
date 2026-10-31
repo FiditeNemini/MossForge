@@ -1,0 +1,7 @@
+// Signing identity for the Xcode app (project.yml). The defaults build an ad-hoc signed Debug app
+// with no Apple account. To sign Release builds, copy Signing.local.xcconfig.example to
+// Signing.local.xcconfig (gitignored) and fill in your own team and bundle id.
+DEVELOPMENT_TEAM =
+MOSSFORGE_BUNDLE_ID = com.example.mossforge
+
+#include? "Signing.local.xcconfig"

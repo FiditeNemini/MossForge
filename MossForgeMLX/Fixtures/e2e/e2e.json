@@ -1,0 +1,12 @@
+{
+ "prompt": "A lighthouse on a rocky cliff at sunset, poster with the title \"NORTH LIGHT\" in bold letters.",
+ "negative": "nsfw, worst quality, bad anatomy, watermark, jpeg artifact",
+ "steps": 6,
+ "shift": 5.0,
+ "cfg": 3.0,
+ "uncond_skip": [
+  22
+ ],
+ "width": 384,
+ "height": 256
+}

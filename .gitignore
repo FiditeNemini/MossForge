@@ -1,0 +1,52 @@
+# macOS
+.DS_Store
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Xcode / DerivedData
+/build/
+/build.noindex/
+/DerivedData/
+/MossForge.xcodeproj/
+xcuserdata/
+*.xcuserstate
+
+# Local overrides & secrets
+.claude/
+.env
+
+# Model weights — NEVER commit (multi-GB; user-downloaded).
+/models/
+*.safetensors
+*.ckpt
+*.gguf
+*.bin
+
+# Generated outputs / scratch
+/Outputs/
+/sweeps/
+*.png
+*.jpg
+*.jpeg
+!docs/**/*.png
+!branding/**/*.png
+
+# Python (parity references, MCP bridge)
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# MCP bridge (Python, uv)
+mcp/.venv/
+mcp/.mypy_cache/
+mcp/.pytest_cache/
+mcp/.ruff_cache/
+__pycache__/
+
+# Your signing team and bundle id (see Config/Signing.local.xcconfig.example)
+Config/Signing.local.xcconfig
+/Reference/

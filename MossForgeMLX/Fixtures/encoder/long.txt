@@ -1,0 +1,109 @@
+Section 0: a detailed scene description number 0, with lanterns, rivers and mountains; 第0段，灯笼、河流与山脉。Prices $0.09, ratio 0:3. {"summary": {"meta": ["poster"], "canvas": "single", "caption": "a travel poster, 中文标题 与 English text"}, "items": [{"label": "text", "caption": "headline", "text": "EXPLORE\nTHE NORTH", "bbox": [-400, -300, -200, 300]}, {"label": "object", "caption": "a red fox sitting on a rock", "bbox": [-100, -250, 400, 250]}], "bbox_coord_space": "abs_centralized", "bbox_format": "yxyx"}
+
+Section 1: a detailed scene description number 37, with lanterns, rivers and mountains; 第1段，灯笼、河流与山脉。Prices $1.19, ratio 1:4. 
+
+Section 2: a detailed scene description number 74, with lanterns, rivers and mountains; 第2段，灯笼、河流与山脉。Prices $2.29, ratio 2:5. 
+
+Section 3: a detailed scene description number 10, with lanterns, rivers and mountains; 第3段，灯笼、河流与山脉。Prices $3.39, ratio 3:6. 
+
+Section 4: a detailed scene description number 47, with lanterns, rivers and mountains; 第4段，灯笼、河流与山脉。Prices $4.49, ratio 4:7. 
+
+Section 5: a detailed scene description number 84, with lanterns, rivers and mountains; 第5段，灯笼、河流与山脉。Prices $5.59, ratio 5:8. {"summary": {"meta": ["poster"], "canvas": "single", "caption": "a travel poster, 中文标题 与 English text"}, "items": [{"label": "text", "caption": "headline", "text": "EXPLORE\nTHE NORTH", "bbox": [-400, -300, -200, 300]}, {"label": "object", "caption": "a red fox sitting on a rock", "bbox": [-100, -250, 400, 250]}], "bbox_coord_space": "abs_centralized", "bbox_format": "yxyx"}
+
+Section 6: a detailed scene description number 20, with lanterns, rivers and mountains; 第6段，灯笼、河流与山脉。Prices $6.69, ratio 6:9. 
+
+Section 7: a detailed scene description number 57, with lanterns, rivers and mountains; 第7段，灯笼、河流与山脉。Prices $7.79, ratio 7:10. 
+
+Section 8: a detailed scene description number 94, with lanterns, rivers and mountains; 第8段，灯笼、河流与山脉。Prices $8.89, ratio 8:11. 
+
+Section 9: a detailed scene description number 30, with lanterns, rivers and mountains; 第9段，灯笼、河流与山脉。Prices $9.99, ratio 9:12. 
+
+Section 10: a detailed scene description number 67, with lanterns, rivers and mountains; 第10段，灯笼、河流与山脉。Prices $10.09, ratio 10:13. {"summary": {"meta": ["poster"], "canvas": "single", "caption": "a travel poster, 中文标题 与 English text"}, "items": [{"label": "text", "caption": "headline", "text": "EXPLORE\nTHE NORTH", "bbox": [-400, -300, -200, 300]}, {"label": "object", "caption": "a red fox sitting on a rock", "bbox": [-100, -250, 400, 250]}], "bbox_coord_space": "abs_centralized", "bbox_format": "yxyx"}
+
+Section 11: a detailed scene description number 3, with lanterns, rivers and mountains; 第11段，灯笼、河流与山脉。Prices $11.19, ratio 11:14. 
+
+Section 12: a detailed scene description number 40, with lanterns, rivers and mountains; 第12段，灯笼、河流与山脉。Prices $12.29, ratio 12:15. 
+
+Section 13: a detailed scene description number 77, with lanterns, rivers and mountains; 第13段，灯笼、河流与山脉。Prices $13.39, ratio 13:16. 
+
+Section 14: a detailed scene description number 13, with lanterns, rivers and mountains; 第14段，灯笼、河流与山脉。Prices $14.49, ratio 14:17. 
+
+Section 15: a detailed scene description number 50, with lanterns, rivers and mountains; 第15段，灯笼、河流与山脉。Prices $15.59, ratio 15:18. {"summary": {"meta": ["poster"], "canvas": "single", "caption": "a travel poster, 中文标题 与 English text"}, "items": [{"label": "text", "caption": "headline", "text": "EXPLORE\nTHE NORTH", "bbox": [-400, -300, -200, 300]}, {"label": "object", "caption": "a red fox sitting on a rock", "bbox": [-100, -250, 400, 250]}], "bbox_coord_space": "abs_centralized", "bbox_format": "yxyx"}
+
+Section 16: a detailed scene description number 87, with lanterns, rivers and mountains; 第16段，灯笼、河流与山脉。Prices $16.69, ratio 16:19. 
+
+Section 17: a detailed scene description number 23, with lanterns, rivers and mountains; 第17段，灯笼、河流与山脉。Prices $17.79, ratio 17:20. 
+
+Section 18: a detailed scene description number 60, with lanterns, rivers and mountains; 第18段，灯笼、河流与山脉。Prices $18.89, ratio 18:21. 
+
+Section 19: a detailed scene description number 97, with lanterns, rivers and mountains; 第19段，灯笼、河流与山脉。Prices $19.99, ratio 19:22. 
+
+Section 20: a detailed scene description number 33, with lanterns, rivers and mountains; 第20段，灯笼、河流与山脉。Prices $20.09, ratio 20:23. {"summary": {"meta": ["poster"], "canvas": "single", "caption": "a travel poster, 中文标题 与 English text"}, "items": [{"label": "text", "caption": "headline", "text": "EXPLORE\nTHE NORTH", "bbox": [-400, -300, -200, 300]}, {"label": "object", "caption": "a red fox sitting on a rock", "bbox": [-100, -250, 400, 250]}], "bbox_coord_space": "abs_centralized", "bbox_format": "yxyx"}
+
+Section 21: a detailed scene description number 70, with lanterns, rivers and mountains; 第21段，灯笼、河流与山脉。Prices $21.19, ratio 21:24. 
+
+Section 22: a detailed scene description number 6, with lanterns, rivers and mountains; 第22段，灯笼、河流与山脉。Prices $22.29, ratio 22:25. 
+
+Section 23: a detailed scene description number 43, with lanterns, rivers and mountains; 第23段，灯笼、河流与山脉。Prices $23.39, ratio 23:26. 
+
+Section 24: a detailed scene description number 80, with lanterns, rivers and mountains; 第24段，灯笼、河流与山脉。Prices $24.49, ratio 24:27. 
+
+Section 25: a detailed scene description number 16, with lanterns, rivers and mountains; 第25段，灯笼、河流与山脉。Prices $25.59, ratio 25:28. {"summary": {"meta": ["poster"], "canvas": "single", "caption": "a travel poster, 中文标题 与 English text"}, "items": [{"label": "text", "caption": "headline", "text": "EXPLORE\nTHE NORTH", "bbox": [-400, -300, -200, 300]}, {"label": "object", "caption": "a red fox sitting on a rock", "bbox": [-100, -250, 400, 250]}], "bbox_coord_space": "abs_centralized", "bbox_format": "yxyx"}
+
+Section 26: a detailed scene description number 53, with lanterns, rivers and mountains; 第26段，灯笼、河流与山脉。Prices $26.69, ratio 26:29. 
+
+Section 27: a detailed scene description number 90, with lanterns, rivers and mountains; 第27段，灯笼、河流与山脉。Prices $27.79, ratio 27:30. 
+
+Section 28: a detailed scene description number 26, with lanterns, rivers and mountains; 第28段，灯笼、河流与山脉。Prices $28.89, ratio 28:31. 
+
+Section 29: a detailed scene description number 63, with lanterns, rivers and mountains; 第29段，灯笼、河流与山脉。Prices $29.99, ratio 29:32. 
+
+Section 30: a detailed scene description number 100, with lanterns, rivers and mountains; 第30段，灯笼、河流与山脉。Prices $30.09, ratio 30:33. {"summary": {"meta": ["poster"], "canvas": "single", "caption": "a travel poster, 中文标题 与 English text"}, "items": [{"label": "text", "caption": "headline", "text": "EXPLORE\nTHE NORTH", "bbox": [-400, -300, -200, 300]}, {"label": "object", "caption": "a red fox sitting on a rock", "bbox": [-100, -250, 400, 250]}], "bbox_coord_space": "abs_centralized", "bbox_format": "yxyx"}
+
+Section 31: a detailed scene description number 36, with lanterns, rivers and mountains; 第31段，灯笼、河流与山脉。Prices $31.19, ratio 31:34. 
+
+Section 32: a detailed scene description number 73, with lanterns, rivers and mountains; 第32段，灯笼、河流与山脉。Prices $32.29, ratio 32:35. 
+
+Section 33: a detailed scene description number 9, with lanterns, rivers and mountains; 第33段，灯笼、河流与山脉。Prices $33.39, ratio 33:36. 
+
+Section 34: a detailed scene description number 46, with lanterns, rivers and mountains; 第34段，灯笼、河流与山脉。Prices $34.49, ratio 34:37. 
+
+Section 35: a detailed scene description number 83, with lanterns, rivers and mountains; 第35段，灯笼、河流与山脉。Prices $35.59, ratio 35:38. {"summary": {"meta": ["poster"], "canvas": "single", "caption": "a travel poster, 中文标题 与 English text"}, "items": [{"label": "text", "caption": "headline", "text": "EXPLORE\nTHE NORTH", "bbox": [-400, -300, -200, 300]}, {"label": "object", "caption": "a red fox sitting on a rock", "bbox": [-100, -250, 400, 250]}], "bbox_coord_space": "abs_centralized", "bbox_format": "yxyx"}
+
+Section 36: a detailed scene description number 19, with lanterns, rivers and mountains; 第36段，灯笼、河流与山脉。Prices $36.69, ratio 36:39. 
+
+Section 37: a detailed scene description number 56, with lanterns, rivers and mountains; 第37段，灯笼、河流与山脉。Prices $37.79, ratio 37:40. 
+
+Section 38: a detailed scene description number 93, with lanterns, rivers and mountains; 第38段，灯笼、河流与山脉。Prices $38.89, ratio 38:41. 
+
+Section 39: a detailed scene description number 29, with lanterns, rivers and mountains; 第39段，灯笼、河流与山脉。Prices $39.99, ratio 39:42. 
+
+Section 40: a detailed scene description number 66, with lanterns, rivers and mountains; 第40段，灯笼、河流与山脉。Prices $40.09, ratio 40:43. {"summary": {"meta": ["poster"], "canvas": "single", "caption": "a travel poster, 中文标题 与 English text"}, "items": [{"label": "text", "caption": "headline", "text": "EXPLORE\nTHE NORTH", "bbox": [-400, -300, -200, 300]}, {"label": "object", "caption": "a red fox sitting on a rock", "bbox": [-100, -250, 400, 250]}], "bbox_coord_space": "abs_centralized", "bbox_format": "yxyx"}
+
+Section 41: a detailed scene description number 2, with lanterns, rivers and mountains; 第41段，灯笼、河流与山脉。Prices $41.19, ratio 41:44. 
+
+Section 42: a detailed scene description number 39, with lanterns, rivers and mountains; 第42段，灯笼、河流与山脉。Prices $42.29, ratio 42:45. 
+
+Section 43: a detailed scene description number 76, with lanterns, rivers and mountains; 第43段，灯笼、河流与山脉。Prices $43.39, ratio 43:46. 
+
+Section 44: a detailed scene description number 12, with lanterns, rivers and mountains; 第44段，灯笼、河流与山脉。Prices $44.49, ratio 44:47. 
+
+Section 45: a detailed scene description number 49, with lanterns, rivers and mountains; 第45段，灯笼、河流与山脉。Prices $45.59, ratio 45:48. {"summary": {"meta": ["poster"], "canvas": "single", "caption": "a travel poster, 中文标题 与 English text"}, "items": [{"label": "text", "caption": "headline", "text": "EXPLORE\nTHE NORTH", "bbox": [-400, -300, -200, 300]}, {"label": "object", "caption": "a red fox sitting on a rock", "bbox": [-100, -250, 400, 250]}], "bbox_coord_space": "abs_centralized", "bbox_format": "yxyx"}
+
+Section 46: a detailed scene description number 86, with lanterns, rivers and mountains; 第46段，灯笼、河流与山脉。Prices $46.69, ratio 46:49. 
+
+Section 47: a detailed scene description number 22, with lanterns, rivers and mountains; 第47段，灯笼、河流与山脉。Prices $47.79, ratio 47:50. 
+
+Section 48: a detailed scene description number 59, with lanterns, rivers and mountains; 第48段，灯笼、河流与山脉。Prices $48.89, ratio 48:51. 
+
+Section 49: a detailed scene description number 96, with lanterns, rivers and mountains; 第49段，灯笼、河流与山脉。Prices $49.99, ratio 49:52. 
+
+Section 50: a detailed scene description number 32, with lanterns, rivers and mountains; 第50段，灯笼、河流与山脉。Prices $50.09, ratio 50:53. {"summary": {"meta": ["poster"], "canvas": "single", "caption": "a travel poster, 中文标题 与 English text"}, "items": [{"label": "text", "caption": "headline", "text": "EXPLORE\nTHE NORTH", "bbox": [-400, -300, -200, 300]}, {"label": "object", "caption": "a red fox sitting on a rock", "bbox": [-100, -250, 400, 250]}], "bbox_coord_space": "abs_centralized", "bbox_format": "yxyx"}
+
+Section 51: a detailed scene description number 69, with lanterns, rivers and mountains; 第51段，灯笼、河流与山脉。Prices $51.19, ratio 51:54. 
+
+Section 52: a detailed scene description number 5, with lanterns, rivers and mountains; 第52段，灯笼、河流与山脉。Prices $52.29, ratio 52:55. 
+
+Section 53: a detailed scene description number 42, with lanterns, rivers and mountains; 第53段，灯笼、河流与山脉。Prices $53.39, ratio 53:56. 
+
+Section 54: a detailed scene description number 79, with lanterns, rivers and mountains; 第54段，灯笼、河流与山脉。Prices $54.49, ratio 54:57. 

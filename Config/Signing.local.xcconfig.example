@@ -1,0 +1,3 @@
+// Copy to Config/Signing.local.xcconfig (gitignored) and fill in.
+DEVELOPMENT_TEAM = YOURTEAMID
+MOSSFORGE_BUNDLE_ID = com.yourname.mossforge

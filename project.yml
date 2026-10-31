@@ -1,0 +1,110 @@
+# XcodeGen spec for the bundled, signable MossForge app .
+#   brew install xcodegen && Scripts/build-app.sh        # or: xcodegen generate && open MossForge.xcodeproj
+#
+# The app sources live in the MossForgeMLX package (the composition root that links MLX and injects
+# MossBackend); this project compiles them into a real .app with the branding asset catalog and the
+# `moss-mlx` CLI embedded. Day-to-day dev can still use Scripts/run-app.sh (a SwiftPM build in a
+# minimal bundle). MossForge.xcodeproj is generated — not committed.
+
+name: MossForge
+options:
+  bundleIdPrefix: com.example.mossforge
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+
+packages:
+  MossForge:
+    path: .
+  MossForgeMLX:
+    path: MossForgeMLX
+  # Live layout tags (`.tweakable`): a no-op stand-in.
+  Tweakbench:
+    path: MossForgeMLX/Packages/Tweakbench
+
+targets:
+  MossForgeApp-macOS:
+    type: application
+    platform: macOS
+    sources:
+      - path: MossForgeMLX/Sources/MossForgeApp
+      - path: branding/Assets.xcassets
+      # The standard About panel shows Credits.rtf from the app's Resources.
+      - path: branding/Credits.rtf
+        buildPhase: resources
+    dependencies:
+      - package: MossForge
+        product: MossForgeCore
+      - package: MossForge
+        product: MossForgeEngine
+      - package: MossForgeMLX
+        product: MossForgeMLX
+      - package: Tweakbench
+        product: Tweakbench
+      # moss-mlx (serve, generate, caption, upscale, parity) ships inside the app (Contents/MacOS),
+      # signed with it, and finds MLX's metallib in the app's Resources like the app does.
+      - target: moss-mlx
+        embed: true
+        codeSign: true
+        copy:
+          destination: executables
+    # Team and bundle id come from Config/Signing.xcconfig (+ your gitignored Signing.local.xcconfig).
+    configFiles:
+      Debug: Config/Signing.xcconfig
+      Release: Config/Signing.xcconfig
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(MOSSFORGE_BUNDLE_ID)
+        PRODUCT_NAME: MossForge
+        GENERATE_INFOPLIST_FILE: "YES"
+        MARKETING_VERSION: "0.2.2"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "6.0"
+        ENABLE_HARDENED_RUNTIME: "YES"
+        # MLX is Apple-silicon only.
+        ARCHS: arm64
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        INFOPLIST_KEY_NSHumanReadableCopyright: "© 2026 FiditeNemini"
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.graphics-design
+      # Debug stays ad-hoc so day-to-day builds need no certificate; Release signs with Developer ID
+      # for notarised distribution (Phase 8).
+      configs:
+        Debug:
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: "-"
+        Release:
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: "Developer ID Application"
+          OTHER_CODE_SIGN_FLAGS: "--timestamp"
+
+  moss-mlx:
+    type: tool
+    platform: macOS
+    sources:
+      - path: MossForgeMLX/Sources/MossForgeMLXCLI
+    dependencies:
+      - package: MossForge
+        product: MossForgeCore
+      - package: MossForge
+        product: MossForgeEngine
+      - package: MossForgeMLX
+        product: MossForgeMLX
+    configFiles:
+      Debug: Config/Signing.xcconfig
+      Release: Config/Signing.xcconfig
+    settings:
+      base:
+        PRODUCT_NAME: moss-mlx
+        PRODUCT_BUNDLE_IDENTIFIER: $(MOSSFORGE_BUNDLE_ID).moss-mlx
+        SWIFT_VERSION: "6.0"
+        ENABLE_HARDENED_RUNTIME: "YES"
+        ARCHS: arm64
+        SKIP_INSTALL: "YES"
+      configs:
+        Debug:
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: "-"
+        Release:
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: "Developer ID Application"
+          OTHER_CODE_SIGN_FLAGS: "--timestamp"
