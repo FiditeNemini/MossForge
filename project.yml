@@ -77,6 +77,54 @@ targets:
           CODE_SIGN_IDENTITY: "Developer ID Application"
           OTHER_CODE_SIGN_FLAGS: "--timestamp"
 
+  # The Mac App Store build: the same app, sandboxed (Config/MossForge-AppStore.entitlements), with the
+  # privacy manifest and without the embedded moss-mlx CLI (a sandboxed CLI could only see the app's
+  # container). Release signs automatically for App Store export (Scripts/release-appstore.sh); Debug is
+  # ad-hoc signed with the same entitlements so the sandbox can be tested locally.
+  MossForgeApp-AppStore:
+    type: application
+    platform: macOS
+    sources:
+      - path: MossForgeMLX/Sources/MossForgeApp
+      - path: branding/Assets.xcassets
+      - path: branding/Credits.rtf
+        buildPhase: resources
+      - path: Config/PrivacyInfo.xcprivacy
+        buildPhase: resources
+    dependencies:
+      - package: MossForge
+        product: MossForgeCore
+      - package: MossForge
+        product: MossForgeEngine
+      - package: MossForgeMLX
+        product: MossForgeMLX
+      - package: Tweakbench
+        product: Tweakbench
+    configFiles:
+      Debug: Config/Signing.xcconfig
+      Release: Config/Signing.xcconfig
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(MOSSFORGE_BUNDLE_ID)
+        PRODUCT_NAME: MossForge
+        GENERATE_INFOPLIST_FILE: "YES"
+        MARKETING_VERSION: "0.2.2"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "6.0"
+        ENABLE_HARDENED_RUNTIME: "YES"
+        CODE_SIGN_ENTITLEMENTS: Config/MossForge-AppStore.entitlements
+        ARCHS: arm64
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        INFOPLIST_KEY_NSHumanReadableCopyright: "© 2026 FiditeNemini"
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.graphics-design
+      configs:
+        Debug:
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: "-"
+        Release:
+          CODE_SIGN_STYLE: Automatic
+          CODE_SIGN_IDENTITY: "Apple Development"
+
   moss-mlx:
     type: tool
     platform: macOS

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Mac App Store build only (MossForgeApp-AppStore). The Developer ID / DMG build is not sandboxed. -->
+	<key>com.apple.security.app-sandbox</key>
+	<true/>
+	<!-- Get Models (Hugging Face downloads). -->
+	<key>com.apple.security.network.client</key>
+	<true/>
+	<!-- The optional resident HTTP server (loopback unless the user allows network access). -->
+	<key>com.apple.security.network.server</key>
+	<true/>
+	<!-- Models / output folders, LoRAs, datasets and images the user picks or drops. -->
+	<key>com.apple.security.files.user-selected.read-write</key>
+	<true/>
+	<!-- Reopen those picks after a relaunch (SecurityScopedBookmarks). -->
+	<key>com.apple.security.files.bookmarks.app-scope</key>
+	<true/>
+	<!-- Default output folder: ~/Pictures/MossForge. -->
+	<key>com.apple.security.assets.pictures.read-write</key>
+	<true/>
+</dict>
+</plist>

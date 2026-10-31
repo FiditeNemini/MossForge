@@ -25,12 +25,15 @@ struct AppSettings: Codable, Equatable {
     var modelBundleRepo = ModelBundleSource.defaultRepo
     /// Settings → Prompts: edits to the enhancer, captioner and slider instructions (only edits are stored).
     var prompts = MossPrompts()
+    /// Folders and files picked in Settings, as security-scoped bookmarks (the sandboxed App Store build
+    /// needs them to reopen models and outputs after a relaunch).
+    var bookmarks = SecurityScopedBookmarks()
 
     init() {}
 
     enum CodingKeys: String, CodingKey {
         case theme, modelsDirectory, outputDirectory, egressEnabled, serverPort, idleUnloadMinutes, overrides, profiles, diagnosticsEnabled
-        case modelBundleRepo, residencyMode, prompts
+        case modelBundleRepo, residencyMode, prompts, bookmarks
     }
 
     /// Tolerant: a field added after the settings were saved keeps its default instead of resetting all.
@@ -49,6 +52,7 @@ struct AppSettings: Codable, Equatable {
         modelBundleRepo = (try? c.decode(String.self, forKey: .modelBundleRepo)) ?? d.modelBundleRepo
         residencyMode = (try? c.decode(MossResidencyMode.self, forKey: .residencyMode)) ?? d.residencyMode
         prompts = (try? c.decode(MossPrompts.self, forKey: .prompts)) ?? d.prompts
+        bookmarks = (try? c.decode(SecurityScopedBookmarks.self, forKey: .bookmarks)) ?? d.bookmarks
     }
 
     var networkPolicy: NetworkPolicy { NetworkPolicy(egressAllowed: egressEnabled) }
@@ -158,7 +162,9 @@ final class AppStore {
     var backendName: String { engine.backendName }
 
     init() {
-        let settings = AppSettings.load()
+        var settings = AppSettings.load()
+        // Reopen the folders picked in earlier launches before anything reads them (sandbox).
+        _ = settings.bookmarks.startAccessing()
         self.settings = settings
         engine = Self.makeEngine(settings)
         server = ServerController(queue: inferenceQueue)
@@ -195,8 +201,9 @@ final class AppStore {
 
     private func reconfigure(old: AppSettings) {
         if !settings.diagnosticsEnabled, old.diagnosticsEnabled { help.forgetDiagnostics() }
+        // A new bookmark means newly granted access (sandbox): re-picking the same folder must reload too.
         if settings.modelsDirectory != old.modelsDirectory || settings.overrides != old.overrides
-            || settings.residencyMode != old.residencyMode
+            || settings.residencyMode != old.residencyMode || settings.bookmarks != old.bookmarks
         {
             let previous = engine
             Task { await previous.releaseResidentModels() }

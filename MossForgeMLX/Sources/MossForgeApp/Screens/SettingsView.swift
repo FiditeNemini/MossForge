@@ -37,8 +37,8 @@ struct SettingsView: View {
         return Form {
             Section("Appearance") { ThemePicker(selection: $store.settings.theme).tweakable("settings.theme") }
             Section("Folders") {
-                folderRow("Models", store.settings.modelsDirectory) { store.settings.modelsDirectory = $0 }
-                folderRow("Output", store.settings.outputDirectory) { store.settings.outputDirectory = $0 }
+                folderRow("Models", store.settings.modelsDirectory) { store.settings.bookmarks.remember($0); store.settings.modelsDirectory = $0 }
+                folderRow("Output", store.settings.outputDirectory) { store.settings.bookmarks.remember($0); store.settings.outputDirectory = $0 }
                 HStack {
                     TextField("Model bundle", text: $store.settings.modelBundleRepo, prompt: Text(ModelBundleSource.defaultRepo))
                         .help("The Hugging Face repo Models → Get Models… downloads from (owner/name)")
@@ -135,7 +135,10 @@ struct SettingsView: View {
                 panel.canChooseDirectories = folder
                 panel.canChooseFiles = !folder
                 panel.directoryURL = (inUse ?? models).deletingLastPathComponent()
-                if panel.runModal() == .OK, let chosen = panel.url { store.settings.overrides[keyPath: key] = chosen }
+                if panel.runModal() == .OK, let chosen = panel.url {
+                    store.settings.bookmarks.remember(chosen)
+                    store.settings.overrides[keyPath: key] = chosen
+                }
             }
         }
         .tweakable("settings.component")

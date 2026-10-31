@@ -61,3 +61,23 @@ anywhere and runs a local server) and needs no hardened-runtime exceptions.
   its real path first — MLX locates the bundle from the launch path. The Verify step checks it
   is present, Developer ID–signed with the hardened runtime, and passes `moss-mlx smoke`.
 - `hdiutil create` prints a deprecation warning on macOS 27; it still works.
+
+## Mac App Store
+
+`Scripts/release-appstore.sh <version> [--upload]` archives the **MossForgeApp-AppStore** target and exports
+it for App Store Connect (`--upload` sends it straight there). That target is the same app with:
+
+- **App Sandbox** (`Config/MossForge-AppStore.entitlements`): network client (Get Models) and server (the
+  resident server), user-selected read/write files, app-scoped bookmarks, and the Pictures folder (the default
+  output). Folders and files picked in Settings are kept as security-scoped bookmarks
+  (`SecurityScopedBookmarks`, in `AppSettings.bookmarks`) and reopened at launch, so a sandboxed relaunch can
+  still read the models folder. The default models folder (Application Support) lives in the container.
+- **A privacy manifest** (`Config/PrivacyInfo.xcprivacy`): no tracking, no collected data; required-reason APIs
+  for UserDefaults, file timestamps (gallery sorting) and disk space (diagnostics).
+- **No embedded `moss-mlx`**: a sandboxed CLI could only see the app's container. It stays in the DMG build.
+
+Signing is automatic for that target and uses the team and bundle id in `Config/Signing.local.xcconfig`; Xcode must be signed in to the team's account, and `-allowProvisioningUpdates`
+creates the Apple Distribution certificate and the Mac App Store profile on first use. No notarisation. The script
+checks the archive is sandboxed, carries the privacy manifest and has no `moss-mlx` before exporting. The build
+number is the commit count and must rise with every upload. Debug builds of the target are ad-hoc signed with
+the same entitlements, so the sandbox can be tried locally (`xcodebuild -scheme MossForgeApp-AppStore -configuration Debug`).
