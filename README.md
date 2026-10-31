@@ -54,5 +54,5 @@ git clone https://github.com/OpenMOSS/MOSS-Image Reference/MOSS-Image
 
 ## Licence
 
-MossForge's source is [Apache-2.0](LICENSE). Model weights are separate and keep their own licences (see
+MossForge's source is [Apache-2.0](LICENSE); see also [NOTICE](NOTICE). Model weights are separate and keep their own licences (see
 NOTES.md). They are never committed here.

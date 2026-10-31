@@ -1,0 +1,14 @@
+MossForge
+Copyright 2026 FiditeNemini
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+NOTE ON MODEL WEIGHTS
+
+The Apache-2.0 license covers the MossForge source code only. It does not cover
+any model weights. MOSS-Image weights (OpenMOSS) and the other models MossForge
+runs are distributed by their authors under their own licenses, are downloaded
+by the user, and are never bundled with or committed to this repository.
+
+Third-party code adapted in this product, and the licenses of the models it
+runs, are listed in NOTES.md and docs/dev/licensing.md.
