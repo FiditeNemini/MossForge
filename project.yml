@@ -66,6 +66,9 @@ targets:
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         INFOPLIST_KEY_NSHumanReadableCopyright: "© 2026 FiditeNemini"
         INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.graphics-design
+        # Only Apple's built-in encryption (URLSession HTTPS, CryptoKit SHA-256): skips App Store Connect's
+        # export-compliance question on each upload.
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: "NO"
       # Debug stays ad-hoc so day-to-day builds need no certificate; Release signs with Developer ID
       # for notarised distribution (Phase 8).
       configs:
@@ -117,6 +120,9 @@ targets:
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         INFOPLIST_KEY_NSHumanReadableCopyright: "© 2026 FiditeNemini"
         INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.graphics-design
+        # Only Apple's built-in encryption (URLSession HTTPS, CryptoKit SHA-256): skips App Store Connect's
+        # export-compliance question on each upload.
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: "NO"
       configs:
         Debug:
           CODE_SIGN_STYLE: Manual
