@@ -78,10 +78,17 @@ struct SettingsView: View {
             } header: {
                 Text("Memory")
             } footer: {
-                Text(store.residency.summary
-                    + (store.settings.residencyMode == .auto ? " (Automatic: chosen from this Mac's GPU memory.)" : ""))
-                    .font(.caption).foregroundStyle(.secondary)
-                    .tweakable("settings.memory.summary")
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(store.residency.summary
+                        + (store.settings.residencyMode == .auto ? " (Automatic: chosen from this Mac's GPU memory.)" : ""))
+                        .font(.caption).foregroundStyle(.secondary)
+                        .tweakable("settings.memory.summary")
+                    if let notice = MossMemoryTier.notice(physicalMemory: MossMemoryTier.physicalMemory) {
+                        Text(notice).font(.caption).foregroundStyle(.orange)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .tweakable("settings.memory.notice")
+                    }
+                }
             }
             Section {
                 Toggle("Enable diagnostics", isOn: $store.settings.diagnosticsEnabled)

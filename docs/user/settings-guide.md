@@ -126,7 +126,13 @@ Train screen carry their recommended range. Type in the box beside the control t
 The DiT (about 10 GB in bf16, 5.4 GB in int8·convrot) and VAE stay loaded between images. **Settings → Memory**
 decides what else stays:
 
-- **Automatic** (the default) chooses from your Mac's GPU memory: on Macs with about 96 GB or more the text
+**How much memory you need.** 64 GB of unified memory or more is the recommended minimum for optimal
+operation. 32 GB *may* work with the right settings: on a Mac with less than 64 GB, MossForge starts with
+**Save memory** selected, and Get Models and Settings → Memory show a note saying so. Keep images at 1024×1024
+or smaller and close other large apps while generating. Under 32 GB, image generation is likely to fail or be
+very slow; the note says that too, before you download the models.
+
+- **Automatic** (the default on Macs with 64 GB or more) chooses from your Mac's GPU memory: on Macs with about 96 GB or more the text
   encoder (Qwen3.5-9B, about 16 GB) stays loaded too, saving roughly 2.5 s per image; on 128 GB Macs and up
   Enhance, Caption, Help and VOSR2 also stay loaded beside the DiT, so switching between them reloads nothing.
   A 64 GB Mac keeps the *Save memory* rules.

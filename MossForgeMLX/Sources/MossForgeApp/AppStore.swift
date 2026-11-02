@@ -13,8 +13,9 @@ struct AppSettings: Codable, Equatable {
     var egressEnabled = false
     var serverPort = 7860
     var idleUnloadMinutes = 10
-    /// Settings → Network & server → Memory: what stays loaded between jobs.
-    var residencyMode = MossResidencyMode.auto
+    /// Settings → Network & server → Memory: what stays loaded between jobs. Save memory on a fresh
+    /// install when this Mac has under 64 GB (`MossMemoryTier`).
+    var residencyMode = MossMemoryTier.current.defaultResidencyMode
     /// Settings → Models: explicit VAE / text encoder / tokenizer (unset = the models-folder layout).
     var overrides = MossModelLayout.Overrides()
     /// Generate → Profile: the user's saved combinations (the built-ins live in `GenerationProfile`).

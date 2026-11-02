@@ -30,6 +30,13 @@ struct ModelSetupSheet: View {
             Text("Downloads MOSS-Image and its text encoder and VAE into \(store.settings.modelsDirectory.path), "
                 + "laid out the way MossForge reads them. Add your own weights and LoRAs there any time.")
                 .font(.callout).foregroundStyle(.secondary).fixedSize(horizontal: false, vertical: true)
+            if let notice = MossMemoryTier.notice(physicalMemory: MossMemoryTier.physicalMemory) {
+                Label(notice, systemImage: "memorychip")
+                    .font(.callout).foregroundStyle(MossMemoryTier.current == .belowMinimum ? .red : .orange)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(10).background(.orange.opacity(0.1), in: RoundedRectangle(cornerRadius: 8))
+                    .tweakable("setup.memoryNotice")
+            }
             HStack {
                 Text("From").foregroundStyle(.secondary)
                 TextField("owner/name", text: $store.settings.modelBundleRepo).frame(maxWidth: 260)
