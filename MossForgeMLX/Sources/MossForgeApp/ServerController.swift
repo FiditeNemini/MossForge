@@ -100,8 +100,14 @@ final class ServerController {
         running = false
     }
 
+    /// Entries kept in the scrollable request log (oldest dropped first).
+    static let logLimit = 500
+
+    func clearLog() { log.removeAll() }
+
+    /// Chronological: newest last, like a terminal; the view follows the tail.
     private func append(_ line: String) {
-        log.insert(LogEntry(line: line), at: 0)
-        if log.count > 60 { log.removeLast(log.count - 60) }
+        log.append(LogEntry(line: line))
+        if log.count > Self.logLimit { log.removeFirst(log.count - Self.logLimit) }
     }
 }

@@ -64,26 +64,57 @@ struct ServerView: View {
             .tweakable("server.controls")
 
             VStack(alignment: .leading, spacing: 6) {
-                Text("Request log").font(.caption).foregroundStyle(.secondary)
+                HStack {
+                    Text("Request log").font(.caption).foregroundStyle(.secondary)
+                    Spacer()
+                    Button { server.clearLog() } label: {
+                        Label("Clear", systemImage: "trash")
+                    }
+                    .buttonStyle(.borderless).controlSize(.small)
+                    .help("Clear the request log")
+                    .disabled(server.log.isEmpty)
+                    .tweakable("server.log.clear")
+                }
                 GroupBox {
                     if server.log.isEmpty {
                         Text("No requests yet.").font(.caption2).foregroundStyle(.secondary)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                     } else {
-                        VStack(alignment: .leading, spacing: 4) {
-                            ForEach(server.log) { entry in
-                                Text(entry.line)
-                                    .font(.system(.caption2, design: .monospaced))
-                                    .foregroundStyle(.secondary)
-                            }
-                        }.frame(maxWidth: .infinity, alignment: .leading)
+                        logScroll
                     }
                 }
+                .frame(maxHeight: .infinity)
                 .tweakable("server.log.entries")
-                Spacer()
-            }.frame(maxWidth: .infinity)
+            }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .tweakable("server.log")
         }.padding(16)
+    }
+
+    /// Bounded by the page height; scrolls back through earlier entries and follows
+    /// the newest one (at the bottom) as requests arrive.
+    private var logScroll: some View {
+        ScrollViewReader { proxy in
+            ScrollView {
+                LazyVStack(alignment: .leading, spacing: 4) {
+                    ForEach(server.log) { entry in
+                        Text(entry.line)
+                            .font(.system(.caption2, design: .monospaced))
+                            .foregroundStyle(.secondary)
+                            .textSelection(.enabled)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .id(entry.id)
+                    }
+                }
+            }
+            .defaultScrollAnchor(.bottom)
+            .onAppear { scrollToNewest(proxy) }
+            .onChange(of: server.log.last?.id) { scrollToNewest(proxy) }
+        }
+    }
+
+    private func scrollToNewest(_ proxy: ScrollViewProxy) {
+        guard let last = server.log.last?.id else { return }
+        proxy.scrollTo(last, anchor: .bottom)
     }
 
     private func copyCurl() {

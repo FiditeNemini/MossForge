@@ -260,6 +260,9 @@ an earlier job's; see [editing](editing.md)). Body: `prompt` **or**
 `guidance_scale`, `shift`, `seed`, `slg` (`official` | `off` | object), `loras` (`path`, `strength`,
 `blocks`). Loopback only unless `--lan`; one job at a time; models unload after `--idle-unload` minutes;
 `--residency auto|keepLoaded|saveMemory` is Settings → Memory (default `auto`).
+
+In the app, the **Server** page starts and stops the same server. Its **Request log** scrolls (the last 500 entries,
+newest at the bottom, followed as requests arrive); **Clear** empties it.
 MCP clients: see `mcp/README.md`.
 
 ## CLI
